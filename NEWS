@@ -1,0 +1,102 @@
+-*- text -*-
+
+Changes since 2.1:
+
+Configurations that are still in development (and therefore are convenient to
+have listed in configure.in) still get rejected without a minor change to
+gas/Makefile.in, so people not doing development work shouldn't get the
+impression that support for such configurations is actually believed to be
+reliable.
+
+The program name (usually "as") is printed when a fatal error message is
+displayed.  This should prevent some confusion about the source of occasional
+messages about "internal errors".
+
+ELF support is falling into place.  Support for the 386 should be working.
+Support for SPARC Solaris is in.  HPPA support from Utah is being integrated.
+
+Symbol values are maintained as expressions instead of being immediately boiled
+down to add-symbol, sub-symbol, and constant.  This permits slightly more
+complex calculations involving symbols whose values are not alreadey known.
+
+Now "make check" should work.
+
+----------------------------------------------------------------
+
+Changes for 2.1:
+
+Several small fixes for i386-aix (PS/2) support from Minh Tran-Le have been
+incorporated, but not well tested yet.
+
+Altered the opcode table split for m68k; it should require less VM to compile
+with gcc now.
+
+Some minor adjustments to add (Convergent Technologies') Miniframe support,
+suggested by Ronald Cole.
+
+HPPA support (running OSF only, not HPUX) has been contributed by Utah.  This
+includes improved ELF support, which I've started adapting for SPARC Solaris
+2.x.  Integration isn't completely, so it probably won't work.
+
+HP9000/300 support, donated by HP, has been merged in.
+
+Ian Taylor has finished the MIPS ECOFF (Ultrix, Irix) support.
+
+Better error messages for unsupported configurations (e.g., hppa-hpux).
+
+Test suite framework is starting to become reasonable.
+
+----------------------------------------------------------------
+
+Changes for 2.0:
+
+Mostly bug fixes.
+
+Some more merging of BFD and ELF code, but ELF still doesn't work.
+
+----------------------------------------------------------------
+
+Changes for 1.94:
+
+BFD merge is partly done.  Adventurous souls may try giving configure the
+"--with-bfd-assembler" option.  Currently, ELF format requires it, a.out format
+accepts it; SPARC CPU accepts it.  It's the default only for OS "elf" or
+"solaris".  (ELF isn't really supported yet.  It needs work.  I've got some
+code from Utah for HP-PA ELF, and from DG for m88k ELF, but they're not fully
+merged yet.)
+
+The 68K opcode table has been split in half.  It should now compile under gcc
+without consuming ridiculous amounts of memory.
+
+A couple data structures have been reduced in size.  This should result in
+saving a little bit of space at runtime.
+
+Support for MIPS, from OSF and Ralph Campbell, has been merged in.  The OSF
+code provided ROSE format support, which I haven't merged in yet.  (I can make
+it available, if anyone wants to try it out.)  Ralph's code, for BSD 4.4,
+supports a.out format.  We don't have ECOFF support in just yet; it's coming.
+
+Support for the Hitachi H8/500 has been added.
+
+VMS host and target support should be working now, thanks chiefly to Eric
+Youngdale.
+
+----------------------------------------------------------------
+
+Changes for 1.93.01:
+
+For m68k, support for more processors has been added: 68040, CPU32, 68851.
+
+For i386, .align is now power-of-two; was number-of-bytes.
+
+For m68k, "%" is now accepted before register names.  For COFF format, which
+doesn't use underscore prefixes for C labels, it is required, so variable "a0"
+can be distinguished from the register.
+
+Last public release was 1.38.  Lots of configuration changes since then, lots
+of new CPUs and formats, lots of bugs fixed.
+
+
+Local variables:
+fill-column: 79
+End:

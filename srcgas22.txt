@@ -1,0 +1,27 @@
+description: gas version 2.2 for gcc2  
+suggested directory: os2/hobbes-mirror/2_x/unix/gcc2_254/replacements
+mail address: zeuner@141.44.40.5
+
+Notes:
+This Assembler is a replacement for gas2 version 1.38.
+The switch -I of gas-1.38 was changed to -OMF in gas-2.2
+You have to compile gcc.exe.
+
+  
+installing:
+1. Change in sources of gcc2 in config.h or tm.h 
+
+	#define ASM_OFILE_SPEC "  -I ..."
+
+to
+	#define ASM_OFILE_SPEC " -OMF ...  "
+
+2. Compile gcc, using: make xgcc.exe
+3. Compile gas2 2.2, please read the makefile in ./gas-2.2 
+4. Install gcc an gas22
+5. Mail me, if you have problems
+
+from: 
+      zeuner@141.44.40.5
+      zeuner@chaos.physik.uni-magdeburg.de
+ 
